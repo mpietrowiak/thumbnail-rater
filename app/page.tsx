@@ -31,7 +31,7 @@ export default function Home() {
           }}
         >
           <label>Title</label>
-          <input name="title" className="text-black" />
+          <input name="title" className="text-white" />
           <button>Create</button>
         </form>
       )}
