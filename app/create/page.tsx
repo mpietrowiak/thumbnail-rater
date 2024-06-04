@@ -10,6 +10,7 @@ import Image from "next/image";
 import UploadThumbnailPreview from "../upload-thumbnail-preview";
 
 export default function CreatePage() {
+  const createThubmnail = useMutation(api.thumbnails.createThumbnail);
   const generateUploadUrl = useMutation(api.files.generateUploadUrl);
   //   const saveStorageId = useMutation(api.files.saveStorageId);
   const [imageA, setImageA] = useState("");
@@ -28,7 +29,21 @@ export default function CreatePage() {
         thumbnail and help you redesign or pickt he best options.
       </p>
 
-      <form>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+
+          const form = e.target as HTMLFormElement;
+          const formData = new FormData(form);
+          // const title = formData.get("title") as string;
+
+          await createThubmnail({
+            aImage: imageA,
+            bImage: imageB,
+            title: "Test Thumbnail",
+          });
+        }}
+      >
         <div className="grid grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold">Test Image A</h2>

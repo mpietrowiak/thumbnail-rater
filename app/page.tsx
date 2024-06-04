@@ -19,13 +19,13 @@ export default function Home() {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const formData = new FormData(form);
-            const title = formData.get("title") as string;
-            await createThubmnail({
-              title,
-            });
-            form.reset();
+            // const form = e.target as HTMLFormElement;
+            // const formData = new FormData(form);
+            // const title = formData.get("title") as string;
+            // await createThubmnail({
+            //   title,
+            // });
+            // form.reset();
           }}
         >
           <label>Title</label>
