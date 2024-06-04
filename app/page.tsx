@@ -14,9 +14,7 @@ export default function Home() {
   const { isLoading, isAuthenticated } = useConvexAuth();
 
   return (
-    <main className={styles.main}>
-      {isAuthenticated ? <SignOutButton /> : <SignInButton />}
-
+    <main className="">
       {isAuthenticated && (
         <form
           onSubmit={async (e) => {
